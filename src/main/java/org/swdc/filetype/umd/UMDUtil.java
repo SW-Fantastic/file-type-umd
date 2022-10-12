@@ -25,11 +25,6 @@ public class UMDUtil {
                 ((intData[1] & 0xFF) <<  8);
     }
 
-    public static long toUint16Rev(byte[] intData) {
-        return ((intData[1] & 0xFF) <<  0) |
-                ((intData[0] & 0xFF) <<  8);
-    }
-
     public static long toUint32(byte[] intData) {
         return ((intData[0] & 0xFF) <<  0) |
                 ((intData[1] & 0xFF) <<  8) |
@@ -39,7 +34,6 @@ public class UMDUtil {
 
     // 解压缩 字节数组
     public static byte[] decompress(byte[] data) {
-        byte[] output = new byte[0];
         Inflater inflater = new Inflater();
         inflater.reset();
         inflater.setInput(data);
